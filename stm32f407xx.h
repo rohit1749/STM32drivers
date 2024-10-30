@@ -178,20 +178,6 @@ typedef struct
 
 
 /*
- * peripheral register definition structure for USART
- */
-typedef struct
-{
-	__vo uint32_t SR;
-	__vo uint32_t DR;
-	__vo uint32_t BRR;
-	__vo uint32_t CR1;
-	__vo uint32_t CR2;
-	__vo uint32_t CR3;
-	__vo uint32_t GTPR;
-} USART_RegDef_t;
-
-/*
  * peripheral definitions ( Peripheral base addresses typecasted to xxx_RegDef_t)
  */
 
