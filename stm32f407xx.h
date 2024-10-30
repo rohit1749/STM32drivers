@@ -50,16 +50,16 @@
  * base addresses of Flash and SRAM memories
  */
 
-#define FLASH_BASEADDR						0x08000000U
-#define SRAM1_BASEADDR						0x20000000U
+#define FLASH_BASEADDR						0x08000000U //PG 75
+#define SRAM1_BASEADDR						0x20000000U //PG 68
 #define SRAM2_BASEADDR						0x2001C000U
 #define ROM_BASEADDR						0x1FFF0000U
-#define SRAM 							SRAM1_BASEADDR
+#define SRAM 								SRAM1_BASEADDR
 
 
 //Peripheral base addresses for AHBx and APBx buses
-
-#define PERIPH_BASEADDR 						0x40000000U
+//refer pg 65
+#define PERIPH_BASEADDR 						0x40000000U //PG 67
 #define APB1PERIPH_BASEADDR						PERIPH_BASEADDR
 #define APB2PERIPH_BASEADDR						0x40010000U
 #define AHB1PERIPH_BASEADDR						0x40020000U
@@ -67,8 +67,8 @@
 
 //Base Addresses of peripherals hanging on AHB1 bus
 
-#define GPIOA_BASEADDR                                   (AHB1PERIPH_BASEADDR + 0x0000)
-#define GPIOB_BASEADDR                                   (AHB1PERIPH_BASEADDR + 0x0400)
+#define GPIOA_BASEADDR                   (AHB1PERIPH_BASEADDR + 0x0000)
+#define GPIOB_BASEADDR                   (AHB1PERIPH_BASEADDR + 0x0400)
 #define GPIOC_BASEADDR 					 (AHB1PERIPH_BASEADDR + 0x0800)
 #define GPIOD_BASEADDR 					 (AHB1PERIPH_BASEADDR + 0x0C00)
 #define GPIOE_BASEADDR 					 (AHB1PERIPH_BASEADDR + 0x1000)
@@ -76,7 +76,7 @@
 #define GPIOG_BASEADDR 					 (AHB1PERIPH_BASEADDR + 0x1800)
 #define GPIOH_BASEADDR 					 (AHB1PERIPH_BASEADDR + 0x1C00)
 #define GPIOI_BASEADDR 					 (AHB1PERIPH_BASEADDR + 0x2000)
-#define RCC_BASEADDR                                     (AHB1PERIPH_BASEADDR + 0x3800)
+#define RCC_BASEADDR                     (AHB1PERIPH_BASEADDR + 0x3800)
 
 //Base Addresses of peripherals hanging on APB1 bus
 
@@ -96,7 +96,7 @@
 
 #define EXTI_BASEADDR						(APB2PERIPH_BASEADDR + 0x3C00)//interrupts  and events
 #define SPI1_BASEADDR						(APB2PERIPH_BASEADDR + 0x3000)
-#define SYSCFG_BASEADDR        				        (APB2PERIPH_BASEADDR + 0x3800)
+#define SYSCFG_BASEADDR        				(APB2PERIPH_BASEADDR + 0x3800)
 #define USART1_BASEADDR						(APB2PERIPH_BASEADDR + 0x1000)
 #define USART6_BASEADDR						(APB2PERIPH_BASEADDR + 0x1400)
 #define ADC_BASEADDR						(APB2PERIPH_BASEADDR + 0x2000)
@@ -110,53 +110,49 @@
  * Note : Registers of a peripheral are specific to MCU
  */
 
-//Register structure for GPIO
-typedef struct
-{
-	__vo uint32_t MODER;                        /* GPIO port mode register,                    	Address offset: 0x00      */
-	__vo uint32_t OTYPER;
-	__vo uint32_t OSPEEDR;
-	__vo uint32_t PUPDR;
-	__vo uint32_t IDR;
-	__vo uint32_t ODR;
-	__vo uint32_t BSRR;
-	__vo uint32_t LCKR;
-	__vo uint32_t AFR[2];					 /* AFR[0] : GPIO alternate function low register, AF[1] : GPIO alternate function high register    		Address offset: 0x20-0x24 */
-}GPIO_RegDef_t;
+
+
 
 /*
- * peripheral register definition structure for I2C
+ * peripheral register definition structure for RCC
  */
 typedef struct
 {
-  __vo uint32_t CR1;
-  __vo uint32_t CR2;
-  __vo uint32_t OAR1;
-  __vo uint32_t OAR2;
-  __vo uint32_t DR;
-  __vo uint32_t SR1;
-  __vo uint32_t SR2;
-  __vo uint32_t CCR;
-  __vo uint32_t TRISE;
-  __vo uint32_t FLTR;
-}I2C_RegDef_t;
+  __vo uint32_t CR;
+  __vo uint32_t PLLCFGR;
+  __vo uint32_t CFGR;
+  __vo uint32_t CIR;
+  __vo uint32_t AHB1RSTR;
+  __vo uint32_t AHB2RSTR;
+  __vo uint32_t AHB3RSTR;
+  uint32_t      RESERVED0;
+  __vo uint32_t APB1RSTR;
+  __vo uint32_t APB2RSTR;
+  uint32_t      RESERVED1[2];
+  __vo uint32_t AHB1ENR;
+  __vo uint32_t AHB2ENR;
+  __vo uint32_t AHB3ENR;
+  uint32_t      RESERVED2;
+  __vo uint32_t APB1ENR;
+  __vo uint32_t APB2ENR;
+  uint32_t      RESERVED3[2];
+  __vo uint32_t AHB1LPENR;
+  __vo uint32_t AHB2LPENR;
+  __vo uint32_t AHB3LPENR;
+  uint32_t      RESERVED4;
+  __vo uint32_t APB1LPENR;
+  __vo uint32_t APB2LPENR;
+  uint32_t      RESERVED5[2];
+  __vo uint32_t BDCR;
+  __vo uint32_t CSR;
+  uint32_t      RESERVED6[2];
+  __vo uint32_t SSCGR;
+  __vo uint32_t PLLI2SCFGR;
+  __vo uint32_t PLLSAICFGR;
+  __vo uint32_t DCKCFGR;
+  __vo uint32_t DCKCFGR2;
 
-/*
- * peripheral register definition structure for SPI
- */
-typedef struct
-{
-	__vo uint32_t CR1;
-	__vo uint32_t CR2;
-	__vo uint32_t SR;
-	__vo uint32_t DR;
-	__vo uint32_t CRCPR;
-	__vo uint32_t RXCRCR;
-	__vo uint32_t TXCRCR;
-	__vo uint32_t I2SCFGR;
-	__vo uint32_t I2SPR;
-} SPI_RegDef_t;
-
+} RCC_RegDef_t;
 typedef struct{
 	__vo uint32_t SR;                        /*!< GPIO port mode register,                    	Address offset: 0x00      */
 		__vo uint32_t CR1;
@@ -200,7 +196,21 @@ typedef struct
 }EXTI_RegDef_t;
 
 
-
+/*
+ * peripheral register definition structure for SPI
+ */
+typedef struct
+{
+	__vo uint32_t CR1;
+	__vo uint32_t CR2;
+	__vo uint32_t SR;
+	__vo uint32_t DR;
+	__vo uint32_t CRCPR;
+	__vo uint32_t RXCRCR;
+	__vo uint32_t TXCRCR;
+	__vo uint32_t I2SCFGR;
+	__vo uint32_t I2SPR;
+} SPI_RegDef_t;
 
 
 /*
@@ -217,7 +227,91 @@ typedef struct
 	__vo uint32_t CFGR;
 } SYSCFG_RegDef_t;
 
+typedef struct{
+	__vo uint32_t LISR;
+		__vo uint32_t HISR;
+		__vo uint32_t LIFCR;
+		__vo uint32_t HIFCR;
+		__vo uint32_t S0CR;
+		__vo uint32_t S0NDTR;
+		__vo uint32_t S0PAR;
+		__vo uint32_t S0M0AR;
+		__vo uint32_t S0M1AR;
+		__vo uint32_t S0FCR;
+		__vo uint32_t S1CR;
+		__vo uint32_t S1NDTR;
+		__vo uint32_t S1PAR;
+		__vo uint32_t S1M0AR;
+		__vo uint32_t S1M1AR;
+		__vo uint32_t S1FCR;
+		__vo uint32_t S2CR;
+		__vo uint32_t S2NDTR;
+		__vo uint32_t S2PAR;
+		__vo uint32_t S2M0AR;
+		__vo uint32_t S2M1AR;
+		__vo uint32_t S2FCR;
+		__vo uint32_t S3CR;
+		__vo uint32_t S3NDTR;
+		__vo uint32_t S3PAR;
+		__vo uint32_t S3M0AR;
+		__vo uint32_t S3M1AR;
+		__vo uint32_t S3FCR;
+		__vo uint32_t S4CR;
+		__vo uint32_t S4NDTR;
+		__vo uint32_t S4PAR;
+		__vo uint32_t S4M0AR;
+		__vo uint32_t S4M1AR;
+		__vo uint32_t S4FCR;
+		__vo uint32_t S5CR;
+		__vo uint32_t S5NDTR;
+		__vo uint32_t S5PAR;
+		__vo uint32_t S5M0AR;
+		__vo uint32_t S5M1AR;
+		__vo uint32_t S5FCR;
+		__vo uint32_t S6CR;
+		__vo uint32_t S6NDTR;
+		__vo uint32_t S6PAR;
+		__vo uint32_t S6M0AR;
+		__vo uint32_t S6M1AR;
+		__vo uint32_t S6FCR;
+		__vo uint32_t S7CR;
+		__vo uint32_t S7NDTR;
+		__vo uint32_t S7PAR;
+		__vo uint32_t S7M0AR;
+		__vo uint32_t S7M1AR;
+		__vo uint32_t S7FCR;
 
+}DMA_RegDef_t;;
+/*
+ * peripheral register definition structure for I2C
+ */
+typedef struct
+{
+  __vo uint32_t CR1;
+  __vo uint32_t CR2;
+  __vo uint32_t OAR1;
+  __vo uint32_t OAR2;
+  __vo uint32_t DR;
+  __vo uint32_t SR1;
+  __vo uint32_t SR2;
+  __vo uint32_t CCR;
+  __vo uint32_t TRISE;
+  __vo uint32_t FLTR;
+}I2C_RegDef_t;
+
+/*
+ * peripheral register definition structure for USART
+ */
+typedef struct
+{
+	__vo uint32_t SR;
+	__vo uint32_t DR;
+	__vo uint32_t BRR;
+	__vo uint32_t CR1;
+	__vo uint32_t CR2;
+	__vo uint32_t CR3;
+	__vo uint32_t GTPR;
+} USART_RegDef_t;
 
 /*
  * peripheral definitions ( Peripheral base addresses typecasted to xxx_RegDef_t)
