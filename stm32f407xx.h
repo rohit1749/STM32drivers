@@ -124,7 +124,22 @@ typedef struct
 	__vo uint32_t AFR[2];					 /* AFR[0] : GPIO alternate function low register, AF[1] : GPIO alternate function high register    		Address offset: 0x20-0x24 */
 }GPIO_RegDef_t;
 
-
+/*
+ * peripheral register definition structure for I2C
+ */
+typedef struct
+{
+  __vo uint32_t CR1;
+  __vo uint32_t CR2;
+  __vo uint32_t OAR1;
+  __vo uint32_t OAR2;
+  __vo uint32_t DR;
+  __vo uint32_t SR1;
+  __vo uint32_t SR2;
+  __vo uint32_t CCR;
+  __vo uint32_t TRISE;
+  __vo uint32_t FLTR;
+}I2C_RegDef_t;
 
 
 
