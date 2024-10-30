@@ -214,77 +214,7 @@ typedef struct
 	__vo uint32_t CFGR;
 } SYSCFG_RegDef_t;
 
-typedef struct{
-	__vo uint32_t LISR;
-		__vo uint32_t HISR;
-		__vo uint32_t LIFCR;
-		__vo uint32_t HIFCR;
-		__vo uint32_t S0CR;
-		__vo uint32_t S0NDTR;
-		__vo uint32_t S0PAR;
-		__vo uint32_t S0M0AR;
-		__vo uint32_t S0M1AR;
-		__vo uint32_t S0FCR;
-		__vo uint32_t S1CR;
-		__vo uint32_t S1NDTR;
-		__vo uint32_t S1PAR;
-		__vo uint32_t S1M0AR;
-		__vo uint32_t S1M1AR;
-		__vo uint32_t S1FCR;
-		__vo uint32_t S2CR;
-		__vo uint32_t S2NDTR;
-		__vo uint32_t S2PAR;
-		__vo uint32_t S2M0AR;
-		__vo uint32_t S2M1AR;
-		__vo uint32_t S2FCR;
-		__vo uint32_t S3CR;
-		__vo uint32_t S3NDTR;
-		__vo uint32_t S3PAR;
-		__vo uint32_t S3M0AR;
-		__vo uint32_t S3M1AR;
-		__vo uint32_t S3FCR;
-		__vo uint32_t S4CR;
-		__vo uint32_t S4NDTR;
-		__vo uint32_t S4PAR;
-		__vo uint32_t S4M0AR;
-		__vo uint32_t S4M1AR;
-		__vo uint32_t S4FCR;
-		__vo uint32_t S5CR;
-		__vo uint32_t S5NDTR;
-		__vo uint32_t S5PAR;
-		__vo uint32_t S5M0AR;
-		__vo uint32_t S5M1AR;
-		__vo uint32_t S5FCR;
-		__vo uint32_t S6CR;
-		__vo uint32_t S6NDTR;
-		__vo uint32_t S6PAR;
-		__vo uint32_t S6M0AR;
-		__vo uint32_t S6M1AR;
-		__vo uint32_t S6FCR;
-		__vo uint32_t S7CR;
-		__vo uint32_t S7NDTR;
-		__vo uint32_t S7PAR;
-		__vo uint32_t S7M0AR;
-		__vo uint32_t S7M1AR;
-		__vo uint32_t S7FCR;
 
-}DMA_RegDef_t;;
-/*
- * peripheral register definition structure for I2C
- */
-typedef struct
-{
-  __vo uint32_t CR1;
-  __vo uint32_t CR2;
-  __vo uint32_t OAR1;
-  __vo uint32_t OAR2;
-  __vo uint32_t DR;
-  __vo uint32_t SR1;
-  __vo uint32_t SR2;
-  __vo uint32_t CCR;
-  __vo uint32_t TRISE;
-  __vo uint32_t FLTR;
-}I2C_RegDef_t;
 
 /*
  * peripheral register definition structure for USART
