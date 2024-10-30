@@ -12,6 +12,24 @@
 #include "stm32f407xx.h"
 
 /*
+ * peripheral register definition structure for I2C
+ */
+typedef struct
+{
+  __vo uint32_t CR1;
+  __vo uint32_t CR2;
+  __vo uint32_t OAR1;
+  __vo uint32_t OAR2;
+  __vo uint32_t DR;
+  __vo uint32_t SR1;
+  __vo uint32_t SR2;
+  __vo uint32_t CCR;
+  __vo uint32_t TRISE;
+  __vo uint32_t FLTR;
+}I2C_RegDef_t;
+
+
+/*
  * Configuration structure for I2Cx peripheral
  */
 typedef struct
