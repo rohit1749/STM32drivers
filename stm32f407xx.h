@@ -54,7 +54,7 @@
 #define SRAM1_BASEADDR						0x20000000U
 #define SRAM2_BASEADDR						0x2001C000U
 #define ROM_BASEADDR						0x1FFF0000U
-#define SRAM 								SRAM1_BASEADDR
+#define SRAM 							SRAM1_BASEADDR
 
 
 //Peripheral base addresses for AHBx and APBx buses
@@ -67,8 +67,8 @@
 
 //Base Addresses of peripherals hanging on AHB1 bus
 
-#define GPIOA_BASEADDR                   (AHB1PERIPH_BASEADDR + 0x0000)
-#define GPIOB_BASEADDR                   (AHB1PERIPH_BASEADDR + 0x0400)
+#define GPIOA_BASEADDR                                   (AHB1PERIPH_BASEADDR + 0x0000)
+#define GPIOB_BASEADDR                                   (AHB1PERIPH_BASEADDR + 0x0400)
 #define GPIOC_BASEADDR 					 (AHB1PERIPH_BASEADDR + 0x0800)
 #define GPIOD_BASEADDR 					 (AHB1PERIPH_BASEADDR + 0x0C00)
 #define GPIOE_BASEADDR 					 (AHB1PERIPH_BASEADDR + 0x1000)
@@ -76,7 +76,7 @@
 #define GPIOG_BASEADDR 					 (AHB1PERIPH_BASEADDR + 0x1800)
 #define GPIOH_BASEADDR 					 (AHB1PERIPH_BASEADDR + 0x1C00)
 #define GPIOI_BASEADDR 					 (AHB1PERIPH_BASEADDR + 0x2000)
-#define RCC_BASEADDR                     (AHB1PERIPH_BASEADDR + 0x3800)
+#define RCC_BASEADDR                                     (AHB1PERIPH_BASEADDR + 0x3800)
 
 //Base Addresses of peripherals hanging on APB1 bus
 
@@ -96,7 +96,7 @@
 
 #define EXTI_BASEADDR						(APB2PERIPH_BASEADDR + 0x3C00)//interrupts  and events
 #define SPI1_BASEADDR						(APB2PERIPH_BASEADDR + 0x3000)
-#define SYSCFG_BASEADDR        				(APB2PERIPH_BASEADDR + 0x3800)
+#define SYSCFG_BASEADDR        				        (APB2PERIPH_BASEADDR + 0x3800)
 #define USART1_BASEADDR						(APB2PERIPH_BASEADDR + 0x1000)
 #define USART6_BASEADDR						(APB2PERIPH_BASEADDR + 0x1400)
 #define ADC_BASEADDR						(APB2PERIPH_BASEADDR + 0x2000)
