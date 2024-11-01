@@ -11,8 +11,6 @@
 
 #include "stm32f407xx.h"
 
-
-
 /*
  *  Configuration structure for SPIx peripheral
  */
