@@ -9,7 +9,6 @@
 #include "stm32f407g_GPIO_driver.h"
 
 
-
 void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t EnorDi)
 {
 	if(EnorDi == ENABLE)
